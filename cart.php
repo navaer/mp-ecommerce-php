@@ -46,7 +46,6 @@ $preference->save();
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' *.mercadolibre.com;">
     <title>Pagar</title>
 </head>
 <body>
