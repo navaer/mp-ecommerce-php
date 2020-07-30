@@ -27,12 +27,8 @@ $payer->address = array(
 
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
-$item->id = "1234";
-$item->title = "Heavy Duty Plastic Table";
-$item->description = "Table is made of heavy duty white plastic and is 96 inches wide and 29 inches tall";
-$item->category_id = "home";
-$item->quantity = 7;
-$item->currency_id = "MXN";
+$item->title = 'Mi producto';
+$item->quantity = 1;
 $item->unit_price = 75.56;
 
 
