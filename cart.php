@@ -31,15 +31,6 @@ $item->title = 'Mi producto';
 $item->quantity = 1;
 $item->unit_price = 75.56;
 
-
-
-$preference->back_urls = array(
-    "success" => "https://www.tu-sitio/success",
-    "failure" => "http://www.tu-sitio/failure",
-    "pending" => "http://www.tu-sitio/pending"
-);
-$preference->auto_return = "approved";
-
 $preference->items = array($item);
 $preference->save();
 
