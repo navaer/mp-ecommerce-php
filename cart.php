@@ -15,6 +15,8 @@ $item->quantity = 1;
 $item->unit_price = 75.56;
 $preference->items = array($item);
 $preference->save();
+
+var_dump($preference);
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,6 +24,7 @@ $preference->save();
     <title>Pagar</title>
 </head>
 <body>
+
 
 <form action="/procesar-pago" method="POST">
     <script
