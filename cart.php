@@ -8,23 +8,6 @@ MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 
-$payer = new MercadoPago\Payer();
-$payer->name = "Charles";
-$payer->surname = "Luevano";
-$payer->email = "charles@hotmail.com";
-$payer->date_created = "2018-06-02T12:58:41.425-04:00";
-$payer->phone = array(
-    "area_code" => "",
-    "number" => "949 128 866"
-);
-
-$payer->address = array(
-    "street_name" => "Cuesta Miguel Armendáriz",
-    "street_number" => 1004,
-    "zip_code" => "11020"
-);
-
-
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
 $item->title = 'Mi producto';
