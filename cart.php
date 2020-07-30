@@ -16,7 +16,7 @@ $item->unit_price = 75.56;
 $preference->items = array($item);
 $preference->save();
 
-var_dump($preference);
+//var_dump($preference);
 ?>
 <!DOCTYPE html>
 <html>
