@@ -25,13 +25,8 @@ var_dump($preference);
 </head>
 <body>
 
+<a href="<?php echo $preference->init_point; ?>">Pagar con Mercado Pago</a>
 
-<form action="/procesar-pago" method="POST">
-    <script
-            src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-            data-preference-id="<?php echo $preference->id; ?>">
-    </script>
-</form>
 
 </body>
 </html>
