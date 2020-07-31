@@ -10,9 +10,12 @@ $preference = new MercadoPago\Preference();
 
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
-$item->title = 'Mi producto';
+$item->id = '1234';
+$item->title = 'Producto grande';
+$item->description = 'Dispositivo móvil de Tienda e-commerce';
 $item->quantity = 1;
 $item->unit_price = 75.56;
+$item->external_reference = 'erick.i.nava.h@gmail.com';
 
 $preference->items = array($item);
 $preference->save();
