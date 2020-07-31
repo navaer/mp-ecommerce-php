@@ -44,6 +44,13 @@ $preference->payment_methods = array(
     "installments" => 6
 );
 
+$preference->back_urls = array(
+    "success" => $_SERVER['SERVER_NAME'] . "/success",
+    "failure" => $_SERVER['SERVER_NAME'] . "/failure",
+    "pending" => $_SERVER['SERVER_NAME'] . "/pending"
+);
+$preference->auto_return = "approved";
+
 $preference->items = array($item);
 $preference->save();
 
