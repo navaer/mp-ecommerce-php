@@ -496,7 +496,8 @@
                             <h2>Pago exitoso</h2>
                             payment_type: <?php echo $_GET['payment_type'] ?> <br>
                             external_reference: <?php echo $_GET['external_reference'] ?> <br>
-                            collection_id: <?php echo $_GET['collection_id'] ?>
+                            collection_id: <?php echo $_GET['collection_id'] ?> <br>
+                            preference_id: <?php echo $_GET['preference_id'] ?>
                         </div>
                     </div>
                 </div>
