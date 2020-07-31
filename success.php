@@ -1,64 +1,3 @@
-<?php
-
-require_once 'vendor/autoload.php';
-
-MercadoPago\SDK::setAccessToken("APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181");
-MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
-
-// Crea un objeto de preferencia
-$preference = new MercadoPago\Preference();
-
-// Crea un ítem en la preferencia
-$item = new MercadoPago\Item();
-$item->id = '1234';
-$item->title =  $_POST['title'];
-$item->description = 'Dispositivo móvil de Tienda e-commerce';
-$item->quantity =  $_POST['unit'];
-$item->unit_price = $_POST['price'];
-$item->picture_url = $_POST['img'];
-//http://mp-ecommerce-php.test/assets/003.jpg
-
-$payer = new MercadoPago\Payer();
-$payer->name = 'Lalo';
-$payer->surname = 'Landa';
-$payer->email = 'test_user_58295862@testuser.com';
-$payer->phone = array(
-    'area_code' => '52',
-    'number' => '5549737300'
-);
-
-$payer->address = array(
-    "street_name" => "Insurgentes Sur",
-    "street_number" => "1602",
-    "zip_code" => "03940"
-);
-
-$preference->payment_methods = array(
-    "excluded_payment_methods" => array(
-        array("id" => "amex")
-    ),
-    "excluded_payment_types" => array(
-        array("id" => "atm")
-    ),
-    "installments" => 6
-);
-
-$preference->back_urls = array(
-    "success" => $_SERVER['SERVER_NAME'] . "/success.php",
-    "failure" => $_SERVER['SERVER_NAME'] . "/failure.php",
-    "pending" => $_SERVER['SERVER_NAME'] . "/pending.php"
-);
-$preference->auto_return = "approved";
-
-$preference->external_reference = 'erick.i.nava.h@gmail.com';
-$preference->notification_url = $_SERVER['SERVER_NAME'] . "/webhook.php";
-$preference->items = array($item);
-$preference->payer = $payer;
-$preference->save();
-
-//var_dump($preference);
-?>
-
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser"
       lang="en-US">
@@ -513,7 +452,7 @@ $preference->save();
                                 <button class="as-filter-button" aria-expanded="true" aria-controls="as-search-filters"
                                         type="button">
                                     <h2 class=" as-filter-button-text">
-                                        Smartphones
+                                        Pago exitoso
                                     </h2>
                                 </button>
 
@@ -554,33 +493,10 @@ $preference->save();
                                 </div>
 
                             </div>
-                            <div class="as-producttile-info" style="float:left;min-height: 168px;">
-                                <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
-                                    <div class="as-producttile-title">
-                                        <h3 class="as-producttile-name">
-                                            <p class="as-producttile-tilelink">
-                                                <span data-ase-truncate="2"><?php echo $_POST['title'] ?></span>
-                                            </p>
-
-                                        </h3>
-                                    </div>
-                                    <h3>
-                                        <?php echo "$ " . $_POST['price'] ?>
-                                    </h3>
-                                    <h3>
-                                        <?php echo "Qty. " . $_POST['unit'] ?>
-                                        <?php echo $_SERVER['SERVER_NAME'] . $_POST['img']; ?>
-                                    </h3>
-                                </div>
-                                <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
-                                <a href="<?php echo $preference->init_point; ?>" class="mercadopago-button">Pagar con Mercado Pago</a>
-                                <form action="/procesar-pago" method="POST">
-                                    <script
-                                            src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-                                            data-preference-id="<?php echo $preference->id; ?>">
-                                    </script>
-                                </form>
-                            </div>
+                            <h2>Pago exitoso</h2>
+                            payment_type: <?php echo $_GET['payment_type'] ?> <br>
+                            external_reference: <?php echo $_GET['external_reference'] ?> <br>
+                            collection_id: <?php echo $_GET['collection_id'] ?>
                         </div>
                     </div>
                 </div>
