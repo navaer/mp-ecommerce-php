@@ -15,8 +15,8 @@ $item->title =  $_POST['title'];
 $item->description = 'Dispositivo móvil de Tienda e-commerce';
 $item->quantity =  $_POST['unit'];
 $item->unit_price = $_POST['price'];
-$item->picture_url = '.' . $_POST['img'];
-//http://mp-ecommerce-php.test/assets/003.jpg
+$img = substr($_POST['img'],1);
+$item->picture_url = 'http://' . $_SERVER['SERVER_NAME'] . $img;
 
 $payer = new MercadoPago\Payer();
 $payer->name = 'Lalo';
