@@ -1,7 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
 
-$filename = 'responses/' . $_GET['id'] . '.json';
+$filename = 'responses/response.json';
 
 
 $data = file_get_contents('php://input') . PHP_EOL;
