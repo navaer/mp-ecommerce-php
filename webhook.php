@@ -1,28 +1,12 @@
 <?php
 require_once 'vendor/autoload.php';
 
-$data = json_decode(file_get_contents('php://input'), true);
-file_put_contents('response.txt', print_r($data, true));
-print_r($data);
-echo $data["operacion"];
+$filename = $_GET['id'] . '.json';
 
 
-MercadoPago\SDK::setAccessToken("APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181");
+$data = file_get_contents('php://input');
+file_put_contents($filename, print_r($data, true));
 
-switch($_POST["type"]) {
-    case "payment":
-        $payment = MercadoPago\Payment::find_by_id($_POST["id"]);
-        break;
-    case "plan":
-        $plan = MercadoPago\Plan::find_by_id($_POST["id"]);
-        break;
-    case "subscription":
-        $plan = MercadoPago\Subscription::find_by_id($_POST["id"]);
-        break;
-    case "invoice":
-        $plan = MercadoPago\Invoice::find_by_id($_POST["id"]);
-        break;
-}
 
 ?>
 
